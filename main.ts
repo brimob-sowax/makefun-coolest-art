@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 
 const src = join(dirname(fileURLToPath(import.meta.url)), "entry.png");
 const outDir = resolve(process.env.MAKEFUN_OUTPUT_DIR ?? "/output");
+// output dir is created if missing (recursive mkdir)
 mkdirSync(outDir, { recursive: true });
 cpSync(src, join(outDir, "entry.png"));
 console.log(`Copied entry.png -> ${join(outDir, "entry.png")}`);
